@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .calc {
+            background: #222;
+            padding: 20px;
+            border-radius: 10px;
+            width: 260px;
+        }
+        .display {
+            background: #000;
+            color: #0f0;
+            padding: 15px;
+            font-size: 26px;
+            text-align: right;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            min-height: 40px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        button {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            background: #444;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .op { background: #ff9f0a; color: #000; }
+        .eq { background: #00c853; }
+        .ac { background: #d50000; }
+        .zero { grid-column: span 2; }
+    </style>
+</head>
+<body>
+
+<div class="calc">
+    <div class="display">{{ expression }}</div>
+
+    <form method="Get">
+        {% csrf_token %}
+
+        <input type="hidden" name="expression" value="{{ expression }}">
+
+        <div class="grid">
+            <button name="action" value="7">7</button>
+            <button name="action" value="8">8</button>
+            <button name="action" value="9">9</button>
+            <button name="action" value="/" class="op">÷</button>
+
+            <button name="action" value="4">4</button>
+            <button name="action" value="5">5</button>
+            <button name="action" value="6">6</button>
+            <button name="action" value="*" class="op">×</button>
+
+            <button name="action" value="1">1</button>
+            <button name="action" value="2">2</button>
+            <button name="action" value="3">3</button>
+            <button name="action" value="-" class="op">−</button>
+
+            <button name="action" value="0">0</button>
+            <button name="action" value="AC" class="ac">C</button>
+            <button name="action" value="=" class="eq">=</button>
+            <button name="action" value="+" class="op">+</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

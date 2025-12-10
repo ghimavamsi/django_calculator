@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Fresh Cart{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'store/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Fresh Cart</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/store/calculator">calculator</a>
+            <a href="#">Cart</a>
+        </nav>
+    </header>
+
+    <!-- Page content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Fresh Cart</p>
+    </footer>
+
+</body>
+</html>

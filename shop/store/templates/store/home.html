@@ -1,1 +1,16 @@
-<h1>Welcome to the Shop</h1>
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Home - Shop{% endblock %}
+
+{% block content %}
+    <h1 style="padding: 20px;">Products</h1>
+
+    <div style="display:flex; flex-wrap:wrap;">
+        {% for p in products %}
+            {% include "store/components/product_card.html" with product=p %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
